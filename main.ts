@@ -1,1 +1,26 @@
-
+input.onButtonPressed(Button.AB, function () {
+    maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 255)
+    strip.showColor(neopixel.colors(NeoPixelColors.Green))
+    strip.show()
+    basic.pause(2000)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 0)
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+    strip.show()
+    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
+    basic.pause(2000)
+    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 255)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 0)
+    strip.showColor(neopixel.colors(NeoPixelColors.Blue))
+    strip.show()
+    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
+    basic.pause(2000)
+    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+    maqueen.motorStop(maqueen.Motors.All)
+})
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
+basic.forever(function () {
+    basic.showIcon(IconNames.Happy)
+})
